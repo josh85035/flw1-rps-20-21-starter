@@ -20,18 +20,8 @@ play.addEventListener("click", function () {
     }
 
     getRandomComputerChoice();
+    chooseWinner(input);
 
-    //see who wins
-    if (input.value.trim().toLowerCase() === "rock" && computerChoice.innerHTML==="scissors" ||
-        input.value.trim().toLowerCase() === "scissors" && computerChoice.innerHTML === "paper" ||
-        input.value.trim().toLowerCase() === "paper" && computerChoice.innerHTML === "rock")
-    {
-        result.innerHTML = "You Win!";
-    } else if (input.value.trim().toLowerCase() === computerChoice.innerHTML){
-        result.innerHTML="You Tie!";
-    } else {
-        result.innerHTML = "You Lose";
-    }
     
     input.value="";
 });
@@ -48,5 +38,19 @@ function getRandomComputerChoice(){
         computerChoice.innerHTML = "paper";
     } else {
         computerChoice.innerHTML = "scissors";
+    }
+}
+
+function chooseWinner(input){
+        //see who wins
+    if (input.value.trim().toLowerCase() === "rock" && computerChoice.innerHTML==="scissors" ||
+        input.value.trim().toLowerCase() === "scissors" && computerChoice.innerHTML === "paper" ||
+        input.value.trim().toLowerCase() === "paper" && computerChoice.innerHTML === "rock")
+    {
+        result.innerHTML = "You Win!";
+    } else if (input.value.trim().toLowerCase() === computerChoice.innerHTML){
+        result.innerHTML="You Tie!";
+    } else {
+        result.innerHTML = "You Lose";
     }
 }
