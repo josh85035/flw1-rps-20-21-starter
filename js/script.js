@@ -5,7 +5,7 @@ let randomNumber = 0;
 let computerChoice = document.querySelector(".computerChoice");
 
 play.addEventListener("click", function () {
-    randomNumber = Math.random();
+
     let input = document.querySelector(".input");
 
     // take input and make sure it is rock, paper, or scissors
@@ -19,14 +19,7 @@ play.addEventListener("click", function () {
         userChoice.innerHTML = "Choose between Rock, Paper, or Scissors."
     }
 
-    //generate psuedorandom chance for rock, paper, or scissors
-    if (randomNumber < 0.33){
-        computerChoice.innerHTML = "rock";
-    } else if (randomNumber > 0.66){
-        computerChoice.innerHTML = "paper";
-    } else {
-        computerChoice.innerHTML = "scissors";
-    }
+    getRandomComputerChoice();
 
     //see who wins
     if (input.value.trim().toLowerCase() === "rock" && computerChoice.innerHTML==="scissors" ||
@@ -42,3 +35,18 @@ play.addEventListener("click", function () {
     
     input.value="";
 });
+
+
+function getRandomComputerChoice(){
+    //generate random number
+    randomNumber = Math.random();
+
+    //generate psuedorandom chance for rock, paper, or scissors
+    if (randomNumber < 0.33){
+        computerChoice.innerHTML = "rock";
+    } else if (randomNumber > 0.66){
+        computerChoice.innerHTML = "paper";
+    } else {
+        computerChoice.innerHTML = "scissors";
+    }
+}
